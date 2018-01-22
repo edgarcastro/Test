@@ -1,0 +1,6 @@
+<p-progressBar *ngIf="loading" mode="indeterminate"></p-progressBar>
+<div *ngIf="!loading">
+  <h3>Total Average</h3>
+  <h4>{{average}} Seconds</h4>
+  <p-chart type="bar" [data]="data"></p-chart>
+</div>

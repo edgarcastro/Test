@@ -1,0 +1,16 @@
+<div class="ui-g">
+  <div class="ui-g-2 ui-sm-6">
+    <p-dropdown [options]="stateCodes" [(ngModel)]="stateCode" placeholder="Select State Code..." (onChange)="getLogs();" [style]="{'width': '100%'}"></p-dropdown>
+  </div>
+  <div class="ui-g-2 ui-sm-6">
+    <p-calendar selectionMode="range" [ngModel]="date" [inputStyle]="{'width': '100%'}" (ngModelChange)="updateRangeDate($event);"
+      showIcon=true></p-calendar>
+  </div>
+  <div class="ui-g-8 ui-sm-12">
+
+  </div>
+  <div class="ui-g-12">
+    <p-progressBar *ngIf="loading" mode="indeterminate"></p-progressBar>
+    <p-chart *ngIf="!loading" type="line" [data]="data"></p-chart>
+  </div>
+</div>
