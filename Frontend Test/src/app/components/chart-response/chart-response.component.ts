@@ -23,15 +23,26 @@ export class ChartResponseComponent implements OnInit {
   logs: Log[] = [];
   startDate: Date;
   endDate: Date;
-  stateCode: string = 'OH';
+  stateCode: string = 'FL';
   stateCodes: any[];
   loading: boolean;
   average: number;
+  date: Date[];
 
   constructor(private testService: TestService) {
     this.startDate = new Date();
     this.endDate = new Date();
     this.data = new dataChart();
+    this.date = [];
+    this.date.push(this.startDate);
+    this.date.push(this.endDate);
+    this.stateCodes = [
+      {label: 'ALL', value:''},
+      {label:'FL', value:'FL'},
+      {label:'OH', value:'OH'},
+      {label:'GA', value:'GA'},
+      {label:'LA', value:'LA'}
+  ];
    }
 
   ngOnInit() {
@@ -40,8 +51,10 @@ export class ChartResponseComponent implements OnInit {
 
   getLogs() {
     this.loading = true;
-    this.testService.getLogs(this.startDate, this.endDate, this.stateCode)
-      .subscribe(response => {
+    let obs;
+    if(this.stateCode == '') obs = this.testService.getLogs(this.startDate, this.endDate)
+    else obs = this.testService.getLogs(this.startDate, this.endDate, this.stateCode)
+    obs.subscribe(response => {
         this.logs = <Log[]>response ;
        this.data = this.groupLogsAverageResponse(this.logs);
     }, error => {
