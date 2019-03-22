@@ -52,11 +52,5 @@
     "redoc-cli": "0.8.3",
     "stream-to-promise": "2.2.0",
     "winston": "3.2.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint && npm test",
-      "pre-push": "npm run lint && npm test"
-    }
   }
 }
