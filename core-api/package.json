@@ -1,0 +1,63 @@
+{
+  "name": "core-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch",
+    "test:all": "jest --watchAll",
+    "start": "nodemon src/index.js",
+    "start:debug": "nodemon --inspect src/index.js",
+    "knex": "node node_modules/knex/bin/cli.js",
+    "lint": "eslint src",
+    "migrate-saved-courses": "node scripts/migrate-saved-courses/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@condor-labs/metrics": "1.2.0",
+    "@risingstack/protect": "1.2.0",
+    "@sendgrid/mail": "6.3.1",
+    "axios": "0.17.0",
+    "body-parser": "1.18.2",
+    "card-validator": "4.1.0",
+    "dotenv": "4.0.0",
+    "express": "4.16.4",
+    "express-router-group": "0.1.4",
+    "express-winston": "3.1.0",
+    "form-data": "2.3.3",
+    "helmet": "3.11.0",
+    "jsonwebtoken": "8.4.0",
+    "knex": "0.13.0",
+    "lodash": "4.17.11",
+    "lz-string": "1.4.4",
+    "moment": "2.24.0",
+    "mongoose": "5.4.19",
+    "multer": "1.4.1",
+    "newrelic": "5.6.1",
+    "oracledb": "2.1.1",
+    "winston": "3.2.1",
+    "xml-js": "1.6.8"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "<rootDir>/(lib|build|docs|node_modules)/"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/(node_modules|server/db/(migrations|seeds))/",
+      "<rootDir>/server/index.js",
+      "<rootDir>/knexfile.js"
+    ]
+  },
+  "devDependencies": {
+    "babel-eslint": "8.0.1",
+    "chai": "4.1.2",
+    "eslint": "4.7.2",
+    "jest": "21.2.0",
+    "nodemon": "1.12.1",
+    "sinon": "4.0.1",
+    "sqlite3": "4.0.6",
+    "supertest": "3.0.0"
+  }
+}
